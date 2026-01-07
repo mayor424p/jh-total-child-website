@@ -1,0 +1,461 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="hero-section">
+  <div class="container">
+    <div class="row align-items-center min-vh-100">
+
+      <!-- LEFT CONTENT -->
+      <div class="col-lg-6 text-white" data-aos="fade-right">
+
+        <div class="hero-content">
+            <span class="hero-badge">
+            🎓 Welcome to JH Total Child Academy
+            </span>
+
+            <h1 class="hero-title mt-4">
+            Where Every 
+            Child's Potential <br>
+            Shines Bright
+            <span class="sun-icon">
+                <i class="bi bi-sun-fill"></i>
+
+            </span>
+            </h1>
+
+            <p class="hero-text mt-3">
+            Providing quality education and holistic development for children
+            from ages 2–12. Building strong foundations for lifelong learning.
+            </p>
+
+            <div class="hero-buttons mt-4">
+                <a href="#" class="btn btn-light btn-lg me-3">
+                    Apply Now
+                </a>
+                <a href="#" class="btn btn-outline-light btn-lg">
+                    Learn More
+                </a>
+            </div>
+           
+            
+           
+        </div>
+        
+
+      </div>
+
+      <!-- RIGHT IMAGE -->
+      <div class="col-lg-6 d-flex justify-content-lg-end" data-aos="fade-left">
+
+        <div class="hero-image-wrapper">
+
+            <img src="{% static 'images/hero.jpg' %}" class="hero-image">
+
+            <!-- TOP RIGHT CARD -->
+            <div class="stats-card stats-top-right">
+            <h2>500+</h2>
+            <p>Happy Students</p>
+            </div>
+
+            <!-- BOTTOM LEFT CARD -->
+            <div class="stats-card stats-bottom-left">
+            <h2>15+</h2>
+            <p>Qualified Teachers</p>
+            </div>
+
+        </div>
+
+        </div>
+
+    </div>
+  </div>
+
+  <!-- Animated blobs -->
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+
+  <div class="hero-wave">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path
+        fill="#ffffff"
+        d="M0,40 C240,80 480,0 720,20 960,40 1200,80 1440,30 L1440,100 L0,100 Z">
+      </path>
+    </svg>
+  </div>
+</section>
+
+
+
+<!-- ABOUT SECTION -->
+<section class="about-section py-5" id="about">
+  <div class="container">
+
+    <!-- TITLE + TEXT -->
+    <div class="row justify-content-center text-center mb-5">
+      <div class="col-lg-8">
+        <h6 class="section-eyebrow">ABOUT US</h6>
+        <h2 class="section-title">Building a Strong Foundation for Every Child</h2>
+        <p class="section-text mt-3">
+          We are committed to nurturing every child intellectually, emotionally,
+          and morally through a safe, engaging, and supportive learning environment.
+        </p>
+      </div>
+    </div>
+
+    <!-- ABOUT CARDS -->
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-3" data-aos="fade-up">
+        <div class="about-card">
+          
+           <div class="about-icon">
+                <i class="bi bi-house-door-fill"></i>
+
+            </div>
+          <h5>Conducive Environment</h5>
+          <p>
+            A safe, friendly, and stimulating environment where children feel confident to learn.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="about-card">
+          
+            <div class="about-icon">
+                <i class="bi bi-person-badge"></i>
+
+            </div>
+          <h5>Experienced Teachers</h5>
+          <p>
+            Passionate and well-trained educators dedicated to every child’s growth.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="about-card">
+          
+            <div class="about-icon">
+                <i class="bi bi-journal-bookmark"></i>
+
+            </div>
+          <h5>Quality Curriculum</h5>
+          <p>
+            A balanced curriculum that blends academics, creativity, and life skills.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+        <div class="about-card">
+        
+            <div class="about-icon">
+                <i class="bi bi-trophy-fill"></i>
+
+            </div>
+          <h5>Academic Excellence</h5>
+          <p>
+            We encourage excellence through discipline, innovation, and continuous assessment.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="mission-vision-section py-5">
+  <div class="container">
+    <div class="row align-items-center g-5">
+
+      <!-- LEFT: IMAGE -->
+      <div class="col-lg-6">
+        <div class="mission-image-wrapper">
+          <img 
+            src="{% static 'images/classroom.jpg' %}" 
+            alt="Classroom"
+            class="img-fluid mission-image"
+          >
+        </div>
+      </div>
+
+      <!-- RIGHT: CONTENT -->
+      <div class="col-lg-6">
+        <h2 class="mission-title mb-3">Our Mission & Vision</h2>
+
+        <p class="mission-text">
+          At JH Total Child Academy, we believe in developing the total child.
+          Our mission is to provide a safe, nurturing environment where children
+          can explore, learn, and grow at their own pace.
+        </p>
+
+        <p class="mission-text">
+          We focus on building strong academic foundations while fostering
+          social, emotional, and physical development. Our child-centered
+          approach ensures that every student receives the individual
+          attention they deserve.
+        </p>
+
+        <!-- STATS -->
+        <div class="row mt-4 g-3">
+            <div class="col-md-6">
+                <div class="stat-card stat-blue">
+                <div class="stat-number">
+                    <span class="counter" data-target="95">0</span>
+                    <span class="stat-symbol">%</span>
+                </div>
+                <div class="stat-label">Parent Satisfaction</div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="stat-card stat-purple">
+                <div class="stat-number">
+                    <span class="counter-ratio" data-target="20">0</span>
+                    <span class="stat-symbol">:1</span>
+                </div>
+                <div class="stat-label">Student–Teacher Ratio</div>
+                </div>
+            </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="program-section py-5">
+  <div class="container">
+
+    <!-- TITLE + TEXT -->
+    <div class="row justify-content-center text-center mb-5">
+      <div class="col-lg-8">
+        <h6 class="program-eyebrow">OUR PROGRAMS</h6>
+        <h2 class="program-title">Programs designed for every statge </h2>
+        <p class="program-text mt-3">
+           from toddlers to highschoolers. we offer age-appropriate 
+           programs that meet children where they are and help them reach their full potential.
+        </p>
+      </div>
+    </div>
+
+    <!-- ABOUT CARDS -->
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-3" data-aos="fade-up">
+        <div class="program-card toddler">
+          
+           <div class="program-icon">
+                <i class="bi bi-emoji-smile-fill"></i>
+
+            </div>
+          <h5>Toddler program</h5>
+          <h6>Ages 1-3</h6>
+          <p>
+            Gentle introduction to structured learning with focus on sensory play and social interaction.
+          </p>
+            <a href="#" class="learn-more">
+                <span class="arrow">→</span> Learn more
+            </a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+        <div class="program-card nursery">
+          
+            <div class="program-icon">
+                <i class="bi bi-balloon-fill"></i>
+
+            </div>
+            
+          <h5>Nusery program</h5>
+            <h6>Ages 3-5</h6>
+          <p>
+            building foundations in literacy, math, and social skills
+            through play-based learning.
+          </p>
+            <a href="#" class="learn-more">
+                <span class="arrow">→</span> Learn more
+            </a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+        <div class="program-card primary">
+          
+            <div class="program-icon">
+                <i class="bi bi-book-half"></i>
+
+            </div>
+          <h5>Primary program</h5>
+          <h6>Ages 5-12</h6>
+          <p>
+            A balanced curriculum that blends academics, creativity, and life skills.
+          </p>
+            <a href="#" class="learn-more">
+                <span class="arrow">→</span> Learn more
+            </a>
+
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+        <div class="program-card secondary">
+
+            <div class="program-icon">
+                <i class="bi bi-award-fill"></i>
+
+            </div>
+          <h5>secondary program</h5>
+            <h6>Ages 12-18</h6>
+          <p>
+            We encourage excellence through discipline, innovation, and continuous assessment.
+          </p>
+            <a href="#" class="learn-more">
+                <span class="arrow">→</span> Learn more
+            </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="gallery-section py-5" data-aos="fade-up">
+  <div class="container text-center mb-5">
+    <span class="gallery-badge">Our Moments</span>
+    <h2 class="gallery-title mt-2">Our Gallery</h2>
+    <p class="gallery-subtitle">
+      A glimpse into life at JH Total Child Academy
+    </p>
+  </div>
+  <!-- Infinite Scroll Row -->
+ <div class="gallery-row">
+    <div class="gallery-track scroll-left">
+      {% for i in "1235678" %}
+        <img src="{% static 'images/gallery' %}{{ i }}.jpg" alt="">
+      {% endfor %}
+      {% for i in "1235678" %}
+        <img src="{% static 'images/gallery' %}{{ i }}.jpg" alt="">
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="gallery-row mt-4">
+    <div class="gallery-track scroll-right">
+      {% for i in "8765321" %}
+        <img src="{% static 'images/gallery' %}{{ i }}.jpg" alt="">
+      {% endfor %}
+      {% for i in "8765321" %}
+        <img src="{% static 'images/gallery' %}{{ i }}.jpg" alt="">
+      {% endfor %}
+    </div>
+
+   <div class="text-center mt-4">
+    <a href="{% url 'gallery:gallery' %}" class="btn btn-gallery">
+        Explore Full Gallery
+    </a>
+</div>
+
+  </div>
+</section>
+
+<section class="testimonials-section py-5" data-aos="fade-up">
+  <div class="container text-center mb-5">
+    <span class="testimonial-label">TESTIMONIALS</span>
+    <h2 class="testimonial-title mt-2">What Parents Say About Us</h2>
+    <p class="testimonial-subtitle">
+      Don't just take our word for it – hear from parents who trust us with their children's education.
+    </p>
+  </div>
+
+  <div class="container">
+    <div class="row g-4">
+
+      <!-- CARD 1 -->
+      <div class="col-lg-4">
+        <div class="testimonial-card soft-bg">
+          <div class="quote-icon">
+              <i class="bi bi-quote bouncing-quote"></i>
+          </div>
+
+          <p class="testimonial-text">
+            JH Total Child Academy has been a blessing for our family. Emma loves going to school every day and has grown so much academically and socially.
+          </p>
+
+          <div class="stars">
+            ★★★★★
+          </div>
+
+          <div class="testimonial-user">
+            <div class="avatar pink">SJ</div>
+            <div>
+              <h6>Sarah Johnson</h6>
+              <small>Parent of Emma, Age 5</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="col-lg-4">
+        <div class="testimonial-card">
+          <div class="quote-icon">
+              <i class="bi bi-quote bouncing-quote"></i>
+          </div>
+
+          <p class="testimonial-text">
+            The teachers are incredibly caring and professional. They truly understand child development and create a nurturing environment for learning.
+          </p>
+
+          <div class="stars">
+            ★★★★★
+          </div>
+
+          <div class="testimonial-user">
+            <div class="avatar blue">MC</div>
+            <div>
+              <h6>Michael Chen</h6>
+              <small>Parent of Lucas, Age 7</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="col-lg-4">
+        <div class="testimonial-card">
+          <div class="quote-icon">
+            <i class="bi bi-quote bouncing-quote"></i>
+          </div>
+
+          <p class="testimonial-text">
+            We could not be happier with our choice. The curriculum is excellent and our twins are thriving. Highly recommend this academy!
+          </p>
+
+          <div class="stars">
+            ★★★★★
+          </div>
+
+          <div class="testimonial-user">
+            <div class="avatar green">JW</div>
+            <div>
+              <h6>Jennifer Williams</h6>
+              <small>Parent of Twins, Age 4</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+{% endblock %}

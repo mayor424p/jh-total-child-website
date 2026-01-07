@@ -1,0 +1,136 @@
+{% extends 'pages/base.html' %}
+{% load static %}
+
+{% block title %}Photo Gallery | JH Total Child Academy{% endblock %}
+
+{% block content %}
+
+<!-- ================================
+   HERO / HEADING SECTION
+================================ -->
+<section class="hero-section hero-section--gallery">
+  <div class="container">
+    <div class="row justify-content-center text-center">
+      <div class="col-lg-8">
+        <h1 class="hero-title">
+          Photo Gallery
+        </h1>
+        <p class="hero-subtitle">
+          Explore moments of learning, creativity, and joy at
+          <strong>JH Total Child Academy</strong>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Wave -->
+  <div class="hero-wave">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+      <path fill="#ffffff"
+        d="M0,40 C240,80 480,0 720,20 960,40 1200,80 1440,30 L1440,100 L0,100 Z">
+      </path>
+    </svg>
+  </div>
+</section>
+
+<!-- ================================
+   GALLERY SECTION
+================================ -->
+<section class="py-5 bg-light gallery-section">
+  <div class="container">
+
+    <!-- FILTER BUTTONS -->
+    <div class="gallery-filters d-flex flex-wrap justify-content-center gap-2">
+      <a href="{% url 'gallery:gallery' %}"
+         class="filter-btn {% if not current_category or current_category == 'all' %}active{% endif %}">
+        <i class="bi bi-images me-1"></i> All Photos
+      </a>
+
+      {% for category_code, category_name in categories %}
+      <a href="?category={{ category_code }}"
+         class="filter-btn {% if current_category == category_code %}active{% endif %}">
+        <i class="bi bi-grid-fill me-1"></i> {{ category_name }}
+      </a>
+      {% endfor %}
+    </div>
+
+    <!-- COUNT -->
+    <p class="text-center text-muted mt-3 mb-4">
+      Showing <strong>{{ images.count }}</strong> photos
+    </p>
+
+    <!-- ================================
+       MASONRY GRID
+    ================================ -->
+   {% if images %}
+        <div class="masonry-grid">
+          {% for image in images %}
+            <div class="masonry-item"
+                data-bs-toggle="modal"
+                data-bs-target="#galleryModal"
+                data-image="{{ image.image.url }}"
+                data-title="{{ image.title }}"
+                data-category="{{ image.category|title }}"
+                data-date="{{ image.created_at|date:'F d, Y' }}">
+
+              <img src="{{ image.image.url }}" alt="{{ image.title }}">
+
+              <span class="category-badge">
+                {{ image.category|title }}
+              </span>
+
+              <div class="preview-overlay">
+                <div class="preview-content">
+                  <h6>{{ image.title }}</h6>
+                  <p>{{ image.category|title }}</p>
+                  <span class="preview-btn">
+                    <i class="bi bi-eye"></i>
+                  </span>
+                </div>
+              </div>
+
+            </div>
+          {% endfor %}
+        </div>
+      {% else %}
+        <div class="text-center gallery-empty-state">
+          <i class="bi bi-image-alt"></i>
+          <h5>No images found</h5>
+          <p class="text-muted">Images will appear here once uploaded.</p>
+        </div>
+      {% endif %}
+
+  </div>
+</section>
+
+<!-- ================================
+   MODAL PREVIEW
+================================ -->
+<div class="modal fade gallery-modal" id="galleryModal" tabindex="-1">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+
+      <!-- CLOSE BUTTON -->
+      <button type="button"
+              class="btn-close gallery-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"></button>
+
+      <!-- IMAGE PREVIEW -->
+      <div class="modal-body gallery-modal-body">
+        <img src=""
+             class="gallery-modal-image"
+             alt="Gallery preview">
+
+        <!-- IMAGE INFO -->
+        <div class="gallery-modal-info">
+          <h5 class="modal-title"></h5>
+          <p class="modal-meta"></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}
