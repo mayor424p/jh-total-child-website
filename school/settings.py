@@ -32,11 +32,15 @@ DEBUG = os.environ.get("DEBUG") == "True"
 
 ALLOWED_HOSTS = [
     'jh-total-child-website.onrender.com',
+    '.onrender.com',
     'localhost',
     '127.0.0.1',
 ]
 
-
+CSRF_TRUSTED_ORIGINS = [
+    'https://jh-total-child-website.onrender.com',
+    'http://*onrender.com',
+]
 
 
 # Application definition
@@ -133,7 +137,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
