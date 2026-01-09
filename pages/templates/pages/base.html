@@ -2,6 +2,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <meta charset="UTF-8">
   <title>{% block title %}JH Total Child Academy{% endblock %}</title>
 
@@ -53,7 +55,7 @@
             <a class="nav-link {% if current_page == 'contact' %}active{% endif %}" href="#contact">Contact</a>
           </li>
           <li class="nav-item">
-            <a class="btn btn-primary ms-lg-3 {% if current_page == 'apply_now' %}active{% endif %}" href="{% url 'admissions:apply_now' %}">Apply Now</a>
+            <a class="btn btn-primary mt-3 mt-lg-0 ms-lg-3 w-100 w-lg-auto {% if current_page == 'apply_now' %}active{% endif %}" href="{% url 'admissions:apply_now' %}">Apply Now</a>
           </li>
         </ul>
 
