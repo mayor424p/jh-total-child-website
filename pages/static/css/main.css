@@ -354,6 +354,62 @@ section {
    HERO SECTION – MOBILE FIX
 ========================= */
 
+/* =========================
+   HERO – REAL MOBILE FIX
+========================= */
+
+@media (max-width: 768px) {
+
+  .hero-section {
+    min-height: auto !important;
+    padding: 90px 16px 60px;
+  }
+
+  .hero-row {
+    min-height: auto !important;
+  }
+
+  .hero-image-wrapper {
+    max-width: 340px;
+    margin: 0 auto 30px;
+  }
+
+  .hero-image {
+    max-height: 260px;
+    object-fit: cover;
+  }
+
+  .hero-content {
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+    line-height: 1.25;
+  }
+
+  .hero-text {
+    font-size: 0.95rem;
+  }
+
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+  }
+
+  /* Disable floating cards on mobile */
+  .stats-card {
+    position: static;
+    margin: 12px auto;
+    animation: none;
+  }
+}
 
 
 
