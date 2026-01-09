@@ -207,11 +207,6 @@ section {
     animation: sunBounceRotate 3s ease-in-out infinite;
 }
 
-@media (max-width: 768px) {
-  .sun-icon i {
-    font-size: 2rem;
-  }
-}
 
 
 @keyframes sunBounceRotate {
@@ -297,16 +292,6 @@ section {
     color: #555;
 }
 
-@media (max-width: 768px) {
-   .stats-card {
-    position: static;
-    animation: none;
-    transform: none !important;
-    margin: 12px auto;
-    width: 100%;
-    max-width: 260px;
-  }
-}
 
 .stats-top-right {
     top: -12%;
@@ -317,20 +302,6 @@ section {
     bottom: -13%;
     left: -13%;
     animation-delay: 1.5s;
-}
-
-@media (max-width: 768px) {
-  .stats-top-right {
-    top: -2%;
-    right: -2%;
-    transform: scale(0.8);
-  }
-  
-  .stats-bottom-left {
-    bottom: -10%;
-    left: -10%;
-    transform: scale(0.8);
-  }
 }
 
 @keyframes float {
@@ -362,14 +333,6 @@ section {
   bottom: -80px;
   right: -80px;
 }
-
-@media (max-width: 768px) {
-  .blob {
-    opacity: 0.25;
-    filter: blur(60px);
-  }
-}
-
 .glass-nav {
   background: rgba(255,255,255,0.9);
   backdrop-filter: blur(10px);
@@ -387,43 +350,88 @@ section {
    height: 100px;
    display: block;
 }
+/* =========================
+   HERO SECTION – MOBILE FIX
+========================= */
 
 @media (max-width: 768px) {
 
   .hero-section {
     min-height: auto;
-    padding: 40px 16px;
+    padding: 80px 16px 60px;
     text-align: center;
   }
 
   .hero-content {
     max-width: 100%;
-    margin: 0 auto;
+    margin-bottom: 30px;
   }
 
   .hero-title {
-    font-size: 2.1rem;
+    font-size: 2.2rem;
     line-height: 1.25;
   }
 
   .hero-text {
-    font-size: 0.95rem;
-    margin-left: auto;
-    margin-right: auto;
+    font-size: 1rem;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .hero-badge {
+    font-size: 0.8rem;
+    margin-bottom: 15px;
   }
 
   .hero-buttons {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    align-items: center;
   }
 
   .hero-buttons .btn {
     width: 100%;
+    max-width: 320px;
   }
 
   .hero-image-wrapper {
     margin-top: 30px;
+  }
+
+  .hero-image {
+    max-width: 100%;
+    border-radius: 16px;
+  }
+
+  /* Hide floating stat cards on small screens */
+  .stats-card {
+    display: none;
+  }
+
+  /* Reduce blob size for performance */
+  .blob-1 {
+    width: 180px;
+    height: 180px;
+  }
+
+  .blob-2 {
+    width: 220px;
+    height: 220px;
+  }
+
+  .sun-icon i {
+    font-size: 2.2rem;
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.9rem;
+  }
+
+  .hero-text {
+    font-size: 0.95rem;
   }
 }
 
