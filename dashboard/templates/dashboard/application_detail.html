@@ -1,0 +1,64 @@
+{% extends 'pages/base.html' %}
+{% block content %}
+
+<div class="container py-4">
+
+  <a href="{% url 'dashboard:home' %}" class="btn btn-light mb-3">
+    ← Back to Dashboard
+  </a>
+
+  <div class="card shadow-sm p-4">
+
+    <h3 class="mb-3">
+      {{ application.surname }} {{ application.other_names }}
+      <span class="badge bg-secondary text-uppercase">
+        {{ application.status }}
+      </span>
+    </h3>
+
+    <hr>
+
+    <h5>Student Information</h5>
+    <p><strong>Date of Birth:</strong> {{ application.date_of_birth }}</p>
+    <p><strong>Gender:</strong> {{ application.gender }}</p>
+    <p><strong>Nationality:</strong> {{ application.nationality }}</p>
+    <p><strong>Address:</strong> {{ application.address }}</p>
+
+    <hr>
+
+    <h5>Father’s Information</h5>
+    <p><strong>Name:</strong> {{ application.father_name }}</p>
+    <p><strong>Phone:</strong> {{ application.father_phone }}</p>
+    <p><strong>Email:</strong> {{ application.father_email }}</p>
+
+    <hr>
+
+    <h5>Mother’s Information</h5>
+    <p><strong>Name:</strong> {{ application.mother_name }}</p>
+    <p><strong>Phone:</strong> {{ application.mother_phone }}</p>
+    <p><strong>Email:</strong> {{ application.mother_email }}</p>
+
+    <hr>
+
+    <h5>Medical Information</h5>
+    <p><strong>Life-threatening condition:</strong> {{ application.life_threatening_condition }}</p>
+    <p><strong>Details:</strong> {{ application.condition_details }}</p>
+    <p><strong>Medication Needed:</strong> {{ application.medication_needed }}</p>
+    <p><strong>Other Issues:</strong> {{ application.other_medical_issues }}</p>
+
+    <hr>
+
+    <div class="d-flex gap-2">
+      <a href="{% url 'dashboard:approve' application.id %}" class="btn btn-success">Approve</a>
+      <a href="{% url 'dashboard:reject' application.id %}" class="btn btn-warning">Reject</a>
+      <a href="{% url 'dashboard:delete_application' application.id %}"
+         class="btn btn-danger"
+         onclick="return confirm('Delete this application?')">
+         Delete
+      </a>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

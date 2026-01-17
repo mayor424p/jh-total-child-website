@@ -54,10 +54,20 @@
           <li class="nav-item">
             <a class="nav-link {% if current_page == 'contact' %}active{% endif %}" href="#contact">Contact</a>
           </li>
+          {% if user.is_authenticated and user.is_staff %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'dashboard:home' %}">Admin</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'accounts:logout' %}">Logout</a>
+          </li>
+        {% endif %}
+
           <li class="nav-item">
             <a class="btn btn-primary mt-3 mt-lg-0 ms-lg-3 w-100 w-lg-auto {% if current_page == 'apply_now' %}active{% endif %}" href="{% url 'admissions:apply_now' %}">Apply Now</a>
           </li>
         </ul>
+
 
     </div>
   </div>

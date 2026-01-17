@@ -1,0 +1,66 @@
+{% extends 'pages/base.html' %}
+{% load widget_tweaks %}  {# Important for add_class #}
+
+{% block content %}
+
+<div class="container my-5 add-gallery">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+
+      <!-- Form Header -->
+      <div class="mb-4 text-center">
+        <h3 class="form-title">Add Gallery Image</h3>
+        <p class="form-subtitle">Upload a new image to your gallery</p>
+      </div>
+
+      <!-- Upload Form -->
+      <form method="post" enctype="multipart/form-data" class="gallery-form p-4 shadow-sm rounded bg-white">
+        {% csrf_token %}
+
+        <!-- Title -->
+        <div class="mb-3">
+          {{ form.title.label_tag }}
+          {{ form.title|add_class:"form-control" }}
+          {% if form.title.errors %}
+            <div class="text-danger small">{{ form.title.errors }}</div>
+          {% endif %}
+        </div>
+
+        <!-- Image -->
+        <div class="mb-3">
+          {{ form.image.label_tag }}
+          {{ form.image|add_class:"form-control" }}
+          {% if form.image.errors %}
+            <div class="text-danger small">{{ form.image.errors }}</div>
+          {% endif %}
+        </div>
+
+        <!-- Category -->
+        <div class="mb-3">
+          {{ form.category.label_tag }}
+          {{ form.category|add_class:"form-select" }}
+          {% if form.category.errors %}
+            <div class="text-danger small">{{ form.category.errors }}</div>
+          {% endif %}
+        </div>
+
+        <!-- Show on Homepage -->
+        <div class="form-check mb-3">
+          {{ form.show_on_homepage|add_class:"form-check-input" }}
+          {{ form.show_on_homepage.label_tag }}
+          {% if form.show_on_homepage.errors %}
+            <div class="text-danger small">{{ form.show_on_homepage.errors }}</div>
+          {% endif %}
+        </div>
+
+        <!-- Submit Button -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary btn-block">Upload Image</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

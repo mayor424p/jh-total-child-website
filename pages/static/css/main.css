@@ -156,8 +156,7 @@ section {
   );
   overflow: hidden;
   min-height: 100vh;
-  display: flex;
-    align-items: center;
+ 
     padding: 60px 20px;
 
 }
@@ -250,12 +249,16 @@ section {
 }
 .hero-image {
   width: 100%;
-   max-width: 420px; 
+   max-width: none; 
    height: auto;
    object-fit: cover;
   border-radius: 20px;
  display: block;
- box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+ box-shadow:  
+    0 20px 40px rgba(0,0,0,0.25),
+    0 0 80px rgba(123, 47, 247, 0.35);
+
+  
  
 }
 
@@ -264,7 +267,24 @@ section {
 .hero-image-wrapper {
   position: relative;
   display: inline-block; 
-  
+   
+    margin-right: 20px;
+   max-width: 420px;
+}
+
+.hero-image-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: linear-gradient(
+    to left,
+    rgba(59, 91, 255, 0) 0%,
+    rgba(123, 47, 247, 0.25) 40%,
+    rgba(200, 75, 255, 0.55) 70%,
+    rgba(200, 75, 255, 0.85) 100%
+  );
+  pointer-events: none;
 }
 
 
@@ -294,14 +314,14 @@ section {
 
 
 .stats-top-right {
-    top: -12%;
-    right: -12%;
+    top: -10%;
+    right: -10%;
 }
 
 .stats-bottom-left {
-    bottom: -13%;
-    left: -13%;
-    animation-delay: 1.5s;
+    bottom: -5%;
+    left: -5%;
+   
 }
 
 @keyframes float {
@@ -357,42 +377,36 @@ section {
 /* =========================
    HERO – REAL MOBILE FIX
 ========================= */
-
+/* =========================
+   HERO – MOBILE RESPONSIVENESS
+========================= */
 @media (max-width: 768px) {
 
+  /* Section spacing */
   .hero-section {
-    min-height: auto !important;
-    padding: 90px 16px 60px;
+    min-height: auto;
+    padding: 80px 16px 60px;
   }
 
-  .hero-row {
-    min-height: auto !important;
-  }
-
-  .hero-image-wrapper {
-    max-width: 340px;
-    margin: 0 auto 30px;
-  }
-
-  .hero-image {
-    max-height: 260px;
-    object-fit: cover;
-  }
-
+  /* Text content */
   .hero-content {
-    text-align: center;
     max-width: 100%;
+    text-align: center;
+    margin-bottom: 40px;
   }
 
   .hero-title {
-    font-size: 2rem;
+    font-size: 2.1rem;
     line-height: 1.25;
   }
 
   .hero-text {
     font-size: 0.95rem;
+    max-width: 100%;
+    margin: 0 auto;
   }
 
+  /* Buttons stack nicely */
   .hero-buttons {
     display: flex;
     flex-direction: column;
@@ -403,15 +417,39 @@ section {
     width: 100%;
   }
 
-  /* Disable floating cards on mobile */
+  /* Image wrapper */
+  .hero-image-wrapper {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Remove blend overlay on mobile */
+  .hero-image-wrapper::after {
+    display: none;
+  }
+
+  /* Stats cards — STOP floating & stack below image */
   .stats-card {
     position: static;
     margin: 12px auto;
     animation: none;
+    width: 85%;
+    max-width: 260px;
+  }
+
+  .stats-top-right,
+  .stats-bottom-left {
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
   }
 }
-
-
 
 
 
@@ -1742,3 +1780,282 @@ textarea.form-control {
 }
 
 
+
+
+
+/* dashboard page */
+
+
+/* ========================
+   DASHBOARD CONTAINER
+======================== */
+.dashboard {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+}
+
+.dashboard-title {
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+.dashboard-subtitle {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* ========================
+   TABS
+======================== */
+.dashboard-tabs .nav-link {
+    font-weight: 500;
+    color: #555;
+    transition: all 0.2s;
+}
+
+.dashboard-tabs .nav-link.active {
+    background-color: #0d6efd;
+    color: #fff;
+    border-radius: 0.25rem;
+}
+
+.dashboard-tabs .badge {
+    font-size: 0.8rem;
+    margin-left: 5px;
+}
+
+/* ========================
+   STAT CARDS
+======================== */
+.stat-card {
+    border-width: 2px;
+    border-radius: 0.5rem;
+    background-color: #fff;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.stat-card h5 {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.stat-count {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* ========================
+   APPLICATION CARDS
+======================== */
+.application-card {
+    border-radius: 0.5rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    background-color: #fff;
+}
+
+.application-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.status-badge {
+    padding: 0.25rem 0.6rem;
+    border-radius: 0.5rem;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+/* Status colors */
+.status-badge.pending {
+    background-color: #ffc107; /* yellow */
+}
+
+.status-badge.approved {
+    background-color: #28a745; /* green */
+}
+
+.status-badge.rejected {
+    background-color: #dc3545; /* red */
+}
+
+/* Action buttons inside applications */
+.application-actions .btn {
+    font-size: 0.8rem;
+    padding: 0.35rem 0.7rem;
+}
+
+/* ========================
+   GALLERY GRID
+======================== */
+.gallery-grid .image-card {
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    background-color: #fff;
+}
+
+.gallery-grid .image-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.image-card h5 {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.image-card small {
+    color: #777;
+}
+
+/* Delete button inside cards */
+.image-card .btn-danger {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.5rem;
+}
+
+/* ========================
+   RESPONSIVE SPACING
+======================== */
+@media (max-width: 768px) {
+    .stat-card {
+        margin-bottom: 1rem;
+    }
+}
+
+
+
+
+/* ========================
+   ADD GALLERY FORM
+======================== */
+.add-gallery .form-title {
+    font-weight: 600;
+    font-size: 1.8rem;
+    margin-bottom: 0.25rem;
+    text-align: center;
+}
+
+.add-gallery .form-subtitle {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.gallery-form {
+    background-color: #fff;
+    border-radius: 0.5rem;
+    padding: 2rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.gallery-form:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.gallery-form .form-control {
+    border-radius: 0.4rem;
+    padding: 0.5rem 0.75rem;
+}
+
+.gallery-form .btn-primary {
+    width: 100%;
+    font-weight: 500;
+    padding: 0.6rem;
+    transition: all 0.2s;
+}
+
+.gallery-form .btn-primary:hover {
+    background-color: #0b5ed7;
+}
+
+/* Category select */
+.gallery-form .form-select {
+    border-radius: 0.4rem;
+    padding: 0.45rem 0.75rem;
+}
+
+/* Checkbox styling */
+.gallery-form .form-check-input {
+    margin-top: 0.3rem;
+}
+.gallery-form .form-check-label {
+    margin-left: 0.5rem;
+    font-weight: 500;
+}
+
+
+
+
+
+
+/* ==========================
+   AUTH PAGES
+========================== */
+
+.auth-bg {
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+}
+
+.auth-card {
+  border-radius: 14px;
+  border: none;
+}
+
+.auth-title {
+  font-weight: 700;
+  color: #1e3c72;
+}
+
+.auth-card .form-control {
+  padding: 12px;
+  border-radius: 10px;
+}
+
+.auth-card .form-control:focus {
+  box-shadow: none;
+  border-color: #1e3c72;
+}
+
+.auth-card .btn-primary {
+  background-color: #1e3c72;
+  border: none;
+  padding: 12px;
+  font-weight: 600;
+  border-radius: 10px;
+}
+
+.auth-card .btn-primary:hover {
+  background-color: #162c57;
+}
+
+.auth-footer {
+  font-size: 14px;
+}
+
+.auth-footer a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #1e3c72;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}

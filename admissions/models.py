@@ -24,7 +24,15 @@ CLASS_CHOICES = (
     ('JSS 3', 'JSS 3'),
 )
 
+STATUS_CHOICES = (
+        ('pending', 'Pending'),
+        ('approved', 'Approved'),
+        ('rejected', 'Rejected'),
+    )
+
+
 class AdmissionApplication(models.Model):
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='pending')
     surname = models.CharField(max_length=50)
     other_names = models.CharField(max_length=50)
     preferred_name = models.CharField(max_length=50, blank=True, null=True)
